@@ -1,10 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {useMovies} from '../../hooks/useMovies';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {PosterCarousel} from '../../components/movies/PosterCarousel';
 import {HorizontalCarousel} from '../../components/movies/HorizontalCarousel';
+import {FullScreenLoader} from '../../components/loaders/FullScreenLoader';
 
 export const HomeScreen = () => {
   const {top} = useSafeAreaInsets();
@@ -12,7 +13,7 @@ export const HomeScreen = () => {
     useMovies();
 
   if (isLoading) {
-    return <Text>Cargando...</Text>;
+    return <FullScreenLoader />;
   }
 
   return (
